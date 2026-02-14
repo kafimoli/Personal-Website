@@ -8,9 +8,9 @@ const bgMusic = document.getElementById("bg-music");
 const clickSound = document.getElementById ("click-sound");
 
 let musicStarted = false;
-let currentIndex = 0;
+let currentIndex = 77;
 
-bgMusic.volume = 0.02;
+bgMusic.volume = 0.05;
 clickSound.volume = 0.5;
 
 function playClickSound(){
