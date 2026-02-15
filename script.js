@@ -5,18 +5,15 @@ const backBtn = document.getElementById("back-btn");
 
 
 const bgMusic = document.getElementById("bg-music");
-const clickSound = document.getElementById ("click-sound");
+
 
 let musicStarted = false;
 let currentIndex = 0;
 
 bgMusic.volume = 0.03;
-clickSound.volume = 0.5;
 
-function playClickSound(){
-    clickSound.currentTime = 0;
-    clickSound.play();
-}
+
+
 
 function startMusic(){
     if (!musicStarted){
@@ -48,14 +45,14 @@ function showText(newIndex){
 
 nextBtn.addEventListener("click", () =>{
     startMusic();
-    playClickSound();
+    
     let nextIndex = currentIndex + 1;
     if(nextIndex >= texts.length) return;
     showText(nextIndex);
 });
 
 backBtn.addEventListener("click", () => {
-    playClickSound();
+    
     let prevIndex = currentIndex - 1;
     if (prevIndex < 0) return;
     showText(prevIndex);
