@@ -10,7 +10,7 @@ const clickSound = document.getElementById ("click-sound");
 let musicStarted = false;
 let currentIndex = 0;
 
-bgMusic.volume = 0.05;
+bgMusic.volume = 0.03;
 clickSound.volume = 0.5;
 
 function playClickSound(){
