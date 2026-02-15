@@ -23,11 +23,88 @@ body::before{
     z-index:-1;
     transform: scale(1.1);
 }
+
+.hearts-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* hearts don't block clicks */
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* individual heart */
+.heart{
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    color: rgba(235, 21, 255, 0.6);
+    animation: floatUp linear infinite;
+    filter: blur(0.5px);
+}
+
+/* floating animation */
+@keyframes floatUp{
+    0%{
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ===========================
+   FALLING PETALS EFFECT
+=========================== */
+
+.petals-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* doesn't block clicks */
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* individual petal */
+.petal{
+    position: absolute;
+    top: -20px;
+    font-size: 20px;
+    color: rgba(255, 182, 193, 0.7); /* soft pink */
+    animation: fall linear infinite;
+    opacity: 0;
+}
+
+/* falling animation */
+@keyframes fall{
+    0%{
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(110vh) translateX(100px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
 .container{
     display:flex;
     flex-direction: column;
     align-items:flex-start;
-    
+    z-index: 2;
 }
 #next-btn{
     font-family: "Boogaloo",sans-serif;
@@ -49,6 +126,7 @@ body::before{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     -webkit-text-stroke: 1px rgb(249, 140, 253);
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 2;
 }
 #next-btn:hover{
     transform: scale(1.01);
@@ -72,6 +150,15 @@ img{
     max-width: auto;
     box-shadow: 0 0 20px rgba(183, 0, 255, 0.8);
     margin: 10px 5px;
+}
+
+.fade-text.visible img{
+    animation: photoReveal 1s ease forwards;
+}
+
+@keyframes photoReveal{
+    from {transform: scale(0.95); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
 }
 #back-btn{
     font-family: "Boogaloo",sans-serif;
