@@ -10,7 +10,7 @@ const bgMusic = document.getElementById("bg-music");
 let musicStarted = false;
 let currentIndex = 0;
 
-bgMusic.volume = 0.03;
+bgMusic.volume = 0.1;
 
 
 
